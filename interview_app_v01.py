@@ -9,7 +9,7 @@ from google.genai import types
 @st.cache_resource
 def get_ai_client():
     # ဒီနေရာမှာ သင့်ရဲ့ API Key အသစ်ကို ထည့်ပါ။ 
-    return genai.Client(api_key="MY_API_KEY")
+    return genai.Client(api_key=st.secrets["GEMINI_API_KEY"])
 
 # Client ကို ခေါ်ယူခြင်း (ဒီ Client က ဘယ်တော့မှ Close မဖြစ်တော့ပါဘူး)
 client = get_ai_client()
