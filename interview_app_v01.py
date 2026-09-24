@@ -10,6 +10,7 @@ from google.genai import types
 def get_ai_client():
     # ဒီနေရာမှာ သင့်ရဲ့ API Key အသစ်ကို ထည့်ပါ။ 
     return genai.Client(api_key=st.secrets["GEMINI_API_KEY"])
+    #return genai.Client(api_key="MY_API_KEY")
 
 # Client ကို ခေါ်ယူခြင်း (ဒီ Client က ဘယ်တော့မှ Close မဖြစ်တော့ပါဘူး)
 client = get_ai_client()
@@ -38,7 +39,7 @@ with st.sidebar:
             ဂျပန်တွေ အင်တာဗျူးချိန်မှာ တကယ် အသုံးပြုတဲ့ စကားလုံးတွေကို သုံးပေးပါ"""
 
             #System Instruction insert
-            chat = client.chats.create(model='gemini-3.5-flash-lite',
+            chat = client.chats.create(model='gemini-3.5-flash',
                                            config=types.GenerateContentConfig(system_instruction=system_instruction)
                                            )
             st.session_state.chat_session = chat
